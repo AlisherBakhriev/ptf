@@ -1,11 +1,9 @@
-// Three.js Main Configuration
+
 let scene, camera, renderer, particles;
 
 function initThreeScene() {
-    // 1. Scene Setup
     scene = new THREE.Scene();
     
-    // 2. Camera Configuration
     camera = new THREE.PerspectiveCamera(
         75,
         window.innerWidth / window.innerHeight,
@@ -14,7 +12,6 @@ function initThreeScene() {
     );
     camera.position.z = 15;
 
-    // 3. Renderer Initialization
     const canvas = document.querySelector('.webgl');
     if (!canvas) {
         console.error('Canvas element with class "webgl" not found!');
@@ -37,12 +34,10 @@ function initThreeScene() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x000000, 0); // Полная прозрачность фона
 
-    // 4. Particle System Creation
     const particleGeometry = new THREE.BufferGeometry();
     const particleCount = 5000;
     const posArray = new Float32Array(particleCount * 3);
 
-    // Генерация случайных позиций
     for (let i = 0; i < particleCount * 3; i++) {
         posArray[i] = (Math.random() - 0.5) * 20;
     }
@@ -52,7 +47,6 @@ function initThreeScene() {
         new THREE.BufferAttribute(posArray, 3)
     );
 
-    // Particle Material
     const particleMaterial = new THREE.PointsMaterial({
         size: 0.1,
         color: new THREE.Color('#64ffda'),
@@ -62,11 +56,9 @@ function initThreeScene() {
         blending: THREE.AdditiveBlending
     });
 
-    // Создание системы частиц
     particles = new THREE.Points(particleGeometry, particleMaterial);
     scene.add(particles);
 
-    // 5. Animation Loop
     const clock = new THREE.Clock();
     
     function animate() {
@@ -75,11 +67,9 @@ function initThreeScene() {
         const elapsedTime = clock.getElapsedTime();
 
         if (particles) {
-            // Плавное вращение
             particles.rotation.x = elapsedTime * 0.1;
             particles.rotation.y = elapsedTime * 0.15;
 
-            // Пульсация частиц
             const positions = particles.geometry.attributes.position.array;
             for (let i = 0; i < positions.length; i += 3) {
                 positions[i + 2] += Math.sin(elapsedTime + positions[i]) * 0.01;
@@ -92,7 +82,6 @@ function initThreeScene() {
 
     animate();
 
-    // 6. Event Handlers
     function onWindowResize() {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
@@ -113,7 +102,6 @@ function initThreeScene() {
     window.addEventListener('mousemove', onMouseMove);
 }
 
-// 7. Initialize Everything
 document.addEventListener('DOMContentLoaded', () => {
     // Проверка поддержки WebGL (исправленная версия)
     try {
@@ -127,7 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initThreeScene();
 
-    // Инициализация анимаций при скролле
     AOS.init({
         duration: 1000,
         once: true,
@@ -135,7 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
         initClassName: 'aos-init'
     });
 });
-// 8. Preloader Transition
 window.addEventListener('load', () => {
     const preloader = document.querySelector('.preloader');
     if (preloader) {
