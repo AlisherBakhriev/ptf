@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fullstack Portfolio</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="header-inner">
+        <div class="logo" data-aos="fade-down">
+          <span class="logo-text">JD</span>
+        </div>
+
+        <nav class="main-nav">
+          <a href="#home" class="nav-link active">Главная</a>
+          <a href="#projects" class="nav-link">Проекты</a>
+          <a href="#skills" class="nav-link">Навыки</a>
+          <a href="./contact.html" class="nav-link">Контакты</a>
+        </nav>
+
+        <div class="social-links">
+          <a href="#" class="social-icon">GitHub</a>
+          <a href="#" class="social-icon">LinkedIn</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Preloader -->
+
+    <div id="webgl-error" style="display: none">
+      <p>⚠️ Ваш браузер не поддерживает WebGL. Пожалуйста, обновите браузер.</p>
+    </div>
+
+    <div class="preloader">
+      <div class="loader"></div>
+    </div>
+
+    <main>
+      <section id="home" class="hero">
+        <canvas class="webgl"></canvas>
+        <div class="hero-content">
+          <h1 data-aos="fade-down" data-aos-delay="500">
+            Пмвмвмвмвам<br /><span class="highlight"
+              >цвавпкпккии</span
+            >
+          </h1>
+          <div
+            class="scroll-indicator"
+            data-aos="fade-up"
+            data-aos-delay="1000"
+          >
+            <div class="mouse"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="featured-projects">
+        <div class="container">
+          <h2 data-aos="fade-up">Избранные проекты</h2>
+          <div class="projects-grid" id="featured-projects"></div>
+          <a href="projects.html" class="see-all-btn" data-aos="zoom-in">
+            Все проекты →
+          </a>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="contact-wrapper">
+            <div class="contact-left" data-aos="fade-right">
+                <h2 class="section-title">Свяжитесь со мной</h2>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">✉️</div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <a href="mailto:john@example.com">vip@example.com</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📱</div>
+                        <div class="info-content">
+                            <h3>Телефон</h3>
+                            <a href="tel:+79991234567">+998 77 777-77-77</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <form class="contact-form" data-aos="fade-left">
+                <div class="form-group">
+                    <input type="text" class="modern-input" required />
+                    <label>Ваше имя</label>
+                    <span class="underline"></span>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" class="modern-input" required />
+                    <label>Ваш Email</label>
+                    <span class="underline"></span>
+                </div>
+                
+                <div class="form-group">
+                    <textarea class="modern-input" rows="4" required></textarea>
+                    <label>Ваше сообщение</label>
+                    <span class="underline"></span>
+                </div>
+                
+                <button type="submit" class="modern-button">
+                    Отправить сообщение
+                    <div class="hover-effect"></div>
+                </button>
+            </form>
+        </div>
+    </section>
+    </main>
+
+    <!-- Добавить перед закрывающим </body> -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <p>📧 vip@dev.com</p>
+          <p>📱 +998 77 777-77-77</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Соцсети</h3>
+          <div class="social-links">
+            <a href="#" class="social-link">GitHub</a>
+            <a href="#" class="social-link">LinkedIn</a>
+            <a href="#" class="social-link">Telegram</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Навигация</h3>
+          <a href="#home" class="footer-link">Главная</a>
+          <a href="#projects" class="footer-link">Проекты</a>
+          <a href="#contact" class="footer-link">Контакты</a>
+        </div>
+      </div>
+
+    
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
+    <script src="./js/background.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
